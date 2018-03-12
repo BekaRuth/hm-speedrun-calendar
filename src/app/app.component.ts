@@ -4,27 +4,27 @@ import { Person } from './models/person';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-    public npcInfo;
-    public currentDay = 3;
-    public totalDays = 0;
-    public currentSeason = 'Spring';
-    public dayOfWeek = 'Wednesday';
-    public currentYear = 1;
-    public selectedNPCs = new Array<Person>();
-
+    public npcInfo; // This will store all of the NPC info from the ReferenceDataService
+    public currentDay = 3; // This will range from 1-30. Starts on 3 because the game starts on Spring 3rd
+    public totalDays = 0; // This will track total number of days played. Will be used to track what day of the week it is
+    public currentSeason = 'Spring'; // Will be 'Spring', 'Summer', 'Fall', or 'Winter'. Game starts on 'Spring'
+    public dayOfWeek = 'Wednesday'; // Used to track the day of the week. Game starts on 'Wednesday'
+    public currentYear = 1; // Tracks what year the player is on
+    public selectedNPCs = new Array<Person>(); // An array of the NPCs which have been selected
+	
     constructor(private referenceDataService: ReferenceDataService) {
         this.npcInfo = this.referenceDataService.getNPCS();
         this.getSchedules();
     }
 
+    // Called when the sleep button is pressed
     public advanceDay() {
         this.currentDay++;
         this.totalDays++;
-        if (this.currentDay > 30) {
+        if (this.currentDay > 30) { // Once the currentDay is at 31, it needs to be set to 1 and the season should advance
             this.currentDay = 1;
             this.advanceSeason();
         }
@@ -32,6 +32,7 @@ export class AppComponent {
         this.getSchedules();
     }
 
+    // Changes the current season to the next season
     public advanceSeason() {
         switch (this.currentSeason) {
             case ('Spring'):
@@ -45,13 +46,14 @@ export class AppComponent {
                 break;
             case ('Winter'):
                 this.currentSeason = 'Spring';
-                this.currentYear++;
+                this.currentYear++; // Need to increase the year at the end of winter
                 break;
         }
     }
 
+    // Sets the day of the week based off of total days played
     public setDayOfWeek() {
-        let day = this.totalDays % 7;
+        let day = this.totalDays % 7; // Modulo Operator. Fun stuff.
         switch (day) {
             case (0):
                 this.dayOfWeek = 'Wednesday';
@@ -77,14 +79,22 @@ export class AppComponent {
         }
     }
 
+    // Called when an NPC is selected from the dropdown. Adds NPC to selectedNPCs
     public addNPC(id: number) {
         for (let i = 0; i < this.npcInfo.length; i++) {
             if (this.npcInfo[i].id === id) {
-                this.selectedNPCs.push(this.npcInfo[i]);
+                this.selectedNPCs.push(this.npcInfo[i])
             }
         }
+		this.getSchedules();
     }
 
+    // Called when minus button is clicked. Removes the NPC from the list
+    public removeNPC(index: number) {
+        this.selectedNPCs.splice(index, 1);
+    }
+
+    // If the NPC is selected, get their schedule
     public getSchedules() {
         if (this.selectedNPCs.some(e => e.id === 1)) {
             this.getAnnSchedule();
@@ -107,7 +117,54 @@ export class AppComponent {
         if (this.selectedNPCs.some(e => e.id === 7)) {
             this.getCliffSchedule();
         }
-        if (this.selectedNPCs.some(e => e.id === 8)) {
+		if (this.selectedNPCs.some(e => e.id === 8)) {
+            this.getGraySchedule();
+        }
+		if (this.selectedNPCs.some(e => e.id === 9)) {
+            this.getHarrisSchedule();
+        }
+		if (this.selectedNPCs.some(e => e.id === 10)) {
+            this.getJeffSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 11)) {
+            this.getKaiSchedule();
+        }
+    }
+	
+	
+    // Start of NPC Schedule Functions
+    public getSchedules() {
+        if (this.selectedNPCs.some(e => e.id === 1)) {
+            this.getAnnSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 2)) {
+            this.getElliSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 3)) {
+            this.getKarenSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 4)) {
+            this.getMariaSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 5)) {
+            this.getPopuriSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 6)) {
+            this.getRickSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 7)) {
+            this.getCliffSchedule();
+        }
+		if (this.selectedNPCs.some(e => e.id === 8)) {
+            this.getGraySchedule();
+        }
+		if (this.selectedNPCs.some(e => e.id === 9)) {
+            this.getHarrisSchedule();
+        }
+		if (this.selectedNPCs.some(e => e.id === 10)) {
+            this.getJeffSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 11)) {
             this.getKaiSchedule();
         }
     }
@@ -224,19 +281,55 @@ export class AppComponent {
             this.npcInfo[6].today = this.npcInfo[6].schedule[5];
         }
     }
+	
+	public getGraySchedule() {
+		if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[7].today = this.npcInfo[7].schedule[1];
+		}
+		else if (this.dayOfWeek === 'Thursday') {
+			this.npcInfo[7].today = this.npcInfo[7].schedule[2];
+		else if (['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+			this.npcInfo[7].today = this.npcInfo[7].schedule[0];
+		}
+	}
   
-      public getKaiSchedule() {
-        if (this.dayOfWeek === 'Sunday') {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[1];
+	public getHarrisSchedule() {
+        if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[8].today = this.npcInfo[8].schedule[2];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[8].today = this.npcInfo[8].schedule[1];
         }
         else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[0];
-        }
-        else if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[3];
-        }
-        else if (this.currentSeason === 'Winter' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[2];
+            this.npcInfo[8].today = this.npcInfo[8].schedule[0];
         }
     }
+
+	public getJeffSchedule() {
+		if (this.dayOfWeek === 'Monday') {
+			this.npcInfo[9].today = this.npcInfo[9].schedule[0];
+		}
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[9].today = this.npcInfo[9].schedule[2];
+		}
+		else {
+			this.npcInfo[9].today = this.npcInfo[9].schedule[1];
+		}
+	}
+		
+    public getKaiSchedule() {
+		if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[3];
+        }
+        else if (this.currentSeason === 'Winter' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[2];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[1];
+        }
+        else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[0];
+        }   
+    }
+	// End of NPC Schedule Functions
 }
