@@ -4,8 +4,7 @@ import { Person } from './models/person';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
     public npcInfo; // This will store all of the NPC info from the ReferenceDataService
@@ -87,6 +86,11 @@ export class AppComponent {
                 this.selectedNPCs.push(this.npcInfo[i]);
             }
         }
+    }
+
+    // Called when minus button is clicked. Removes the NPC from the list
+    public removeNPC(index: number) {
+        this.selectedNPCs.splice(index, 1);
     }
 
     // If the NPC is selected, get their schedule
