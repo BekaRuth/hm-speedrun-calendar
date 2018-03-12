@@ -83,9 +83,10 @@ export class AppComponent {
     public addNPC(id: number) {
         for (let i = 0; i < this.npcInfo.length; i++) {
             if (this.npcInfo[i].id === id) {
-                this.selectedNPCs.push(this.npcInfo[i]);
+                this.selectedNPCs.push(this.npcInfo[i])
             }
         }
+		this.getSchedules();
     }
 
     // Called when minus button is clicked. Removes the NPC from the list
