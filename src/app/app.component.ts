@@ -8,23 +8,24 @@ import { Person } from './models/person';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    public npcInfo;
-    public currentDay = 3;
-    public totalDays = 0;
-    public currentSeason = 'Spring';
-    public dayOfWeek = 'Wednesday';
-    public currentYear = 1;
-    public selectedNPCs = new Array<Person>();
+    public npcInfo; // This will store all of the NPC info from the ReferenceDataService
+    public currentDay = 3; // This will range from 1-30. Starts on 3 because the game starts on Spring 3rd
+    public totalDays = 0; // This will track total number of days played. Will be used to track what day of the week it is
+    public currentSeason = 'Spring'; // Will be 'Spring', 'Summer', 'Fall', or 'Winter'. Game starts on 'Spring'
+    public dayOfWeek = 'Wednesday'; // Used to track the day of the week. Game starts on 'Wednesday'
+    public currentYear = 1; // Tracks what year the player is on
+    public selectedNPCs = new Array<Person>(); // An array of the NPCs which have been selected
 
     constructor(private referenceDataService: ReferenceDataService) {
         this.npcInfo = this.referenceDataService.getNPCS();
         this.getSchedules();
     }
 
+    // Called when the sleep button is pressed
     public advanceDay() {
         this.currentDay++;
         this.totalDays++;
-        if (this.currentDay > 30) {
+        if (this.currentDay > 30) { // Once the currentDay is at 31, it needs to be set to 1 and the season should advance
             this.currentDay = 1;
             this.advanceSeason();
         }
@@ -32,6 +33,7 @@ export class AppComponent {
         this.getSchedules();
     }
 
+    // Changes the current season to the next season
     public advanceSeason() {
         switch (this.currentSeason) {
             case ('Spring'):
@@ -45,13 +47,14 @@ export class AppComponent {
                 break;
             case ('Winter'):
                 this.currentSeason = 'Spring';
-                this.currentYear++;
+                this.currentYear++; // Need to increase the year at the end of winter
                 break;
         }
     }
 
+    // Sets the day of the week based off of total days played
     public setDayOfWeek() {
-        let day = this.totalDays % 7;
+        let day = this.totalDays % 7; // Modulo Operator. Fun stuff.
         switch (day) {
             case (0):
                 this.dayOfWeek = 'Wednesday';
@@ -77,6 +80,7 @@ export class AppComponent {
         }
     }
 
+    // Called when an NPC is selected from the dropdown. Adds NPC to selectedNPCs
     public addNPC(id: number) {
         for (let i = 0; i < this.npcInfo.length; i++) {
             if (this.npcInfo[i].id === id) {
@@ -85,6 +89,7 @@ export class AppComponent {
         }
     }
 
+    // If the NPC is selected, get their schedule
     public getSchedules() {
         if (this.selectedNPCs.some(e => e.id === 1)) {
             this.getAnnSchedule();
@@ -112,6 +117,8 @@ export class AppComponent {
         }
     }
 
+
+    // Start of NPC Schedule Functions
     public getAnnSchedule() {
         if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[0].today = this.npcInfo[0].schedule[0];
@@ -225,7 +232,7 @@ export class AppComponent {
         }
     }
   
-      public getKaiSchedule() {
+    public getKaiSchedule() {
         if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[7].today = this.npcInfo[7].schedule[1];
         }
@@ -239,4 +246,5 @@ export class AppComponent {
             this.npcInfo[7].today = this.npcInfo[7].schedule[2];
         }
     }
+    // End of NPC Schedule Functions
 }
