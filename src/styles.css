@@ -26,3 +26,14 @@
 .full-width {
   width: 100%;
 }
+
+.remove-btn {
+  position: absolute;
+  right: 5px;
+}
+
+@media (max-width: 500px) {
+  .remove-btn {
+    right: 0px;
+  }
+}
