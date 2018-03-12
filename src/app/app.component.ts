@@ -95,43 +95,6 @@ export class AppComponent {
     }
 
     // If the NPC is selected, get their schedule
-    public getSchedules() {
-        if (this.selectedNPCs.some(e => e.id === 1)) {
-            this.getAnnSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 2)) {
-            this.getElliSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 3)) {
-            this.getKarenSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 4)) {
-            this.getMariaSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 5)) {
-            this.getPopuriSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 6)) {
-            this.getRickSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 7)) {
-            this.getCliffSchedule();
-        }
-		if (this.selectedNPCs.some(e => e.id === 8)) {
-            this.getGraySchedule();
-        }
-		if (this.selectedNPCs.some(e => e.id === 9)) {
-            this.getHarrisSchedule();
-        }
-		if (this.selectedNPCs.some(e => e.id === 10)) {
-            this.getJeffSchedule();
-        }
-        if (this.selectedNPCs.some(e => e.id === 11)) {
-            this.getKaiSchedule();
-        }
-    }
-	
-	
     // Start of NPC Schedule Functions
     public getSchedules() {
         if (this.selectedNPCs.some(e => e.id === 1)) {
@@ -155,13 +118,13 @@ export class AppComponent {
         if (this.selectedNPCs.some(e => e.id === 7)) {
             this.getCliffSchedule();
         }
-		if (this.selectedNPCs.some(e => e.id === 8)) {
+        if (this.selectedNPCs.some(e => e.id === 8)) {
             this.getGraySchedule();
         }
-		if (this.selectedNPCs.some(e => e.id === 9)) {
+        if (this.selectedNPCs.some(e => e.id === 9)) {
             this.getHarrisSchedule();
         }
-		if (this.selectedNPCs.some(e => e.id === 10)) {
+        if (this.selectedNPCs.some(e => e.id === 10)) {
             this.getJeffSchedule();
         }
         if (this.selectedNPCs.some(e => e.id === 11)) {
@@ -260,7 +223,7 @@ export class AppComponent {
             this.npcInfo[5].today = this.npcInfo[5].schedule[0];
         }
     }
-  
+
     public getCliffSchedule() {
         if (this.dayOfWeek === 'Monday') {
             this.npcInfo[6].today = this.npcInfo[6].schedule[0];
@@ -281,19 +244,20 @@ export class AppComponent {
             this.npcInfo[6].today = this.npcInfo[6].schedule[5];
         }
     }
-	
-	public getGraySchedule() {
-		if (this.dayOfWeek === 'Sunday') {
-			this.npcInfo[7].today = this.npcInfo[7].schedule[1];
-		}
-		else if (this.dayOfWeek === 'Thursday') {
-			this.npcInfo[7].today = this.npcInfo[7].schedule[2];
-		else if (['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
-			this.npcInfo[7].today = this.npcInfo[7].schedule[0];
-		}
-	}
-  
-	public getHarrisSchedule() {
+
+    public getGraySchedule() {
+        if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[7].today = this.npcInfo[7].schedule[1];
+        }
+        else if (this.dayOfWeek === 'Thursday') {
+            this.npcInfo[7].today = this.npcInfo[7].schedule[2];
+        }
+        else if (['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+            this.npcInfo[7].today = this.npcInfo[7].schedule[0];
+        }
+    }
+
+    public getHarrisSchedule() {
         if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Sunday') {
             this.npcInfo[8].today = this.npcInfo[8].schedule[2];
         }
@@ -305,20 +269,20 @@ export class AppComponent {
         }
     }
 
-	public getJeffSchedule() {
-		if (this.dayOfWeek === 'Monday') {
-			this.npcInfo[9].today = this.npcInfo[9].schedule[0];
-		}
-		else if (this.dayOfWeek === 'Sunday') {
-			this.npcInfo[9].today = this.npcInfo[9].schedule[2];
-		}
-		else {
-			this.npcInfo[9].today = this.npcInfo[9].schedule[1];
-		}
-	}
-		
+    public getJeffSchedule() {
+        if (this.dayOfWeek === 'Monday') {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[0];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[2];
+        }
+        else {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[1];
+        }
+    }
+
     public getKaiSchedule() {
-		if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
+        if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
             this.npcInfo[10].today = this.npcInfo[10].schedule[3];
         }
         else if (this.currentSeason === 'Winter' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
@@ -329,7 +293,7 @@ export class AppComponent {
         }
         else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
             this.npcInfo[10].today = this.npcInfo[10].schedule[0];
-        }   
+        }
     }
-	// End of NPC Schedule Functions
+    // End of NPC Schedule Functions
 }
