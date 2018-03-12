@@ -41,7 +41,7 @@ export class ReferenceDataService {
                 '10am - 6pm 50% Outside Saibara House. Rain: Unavailable', // Saturday
                 '10am - 6pm 50% Town Square Fountain. Rain Unavailable', // Sunday
                 'Unavailable' // Wednesday
-            ], 'assets/Rick.png')
+            ], 'assets/Rick.png'),
             new Person(7, 'Cliff' [
                 '9am - 5pm. 100% Hot Springs. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Monday
                 '9am - 5pm. 100% Beach. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar' // Tuesday
@@ -49,7 +49,7 @@ export class ReferenceDataService {
                 '9am - 5pm. 100% Carpenter House. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar' // Thursday
                 '9am - 5pm. 50% Fisherman, 50% Unavailable. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar' //Friday, Saturday
                 '9am - 5pm. 50% Carpenter, 50% Unavailable. Rain: 50% Inside Carpenter House 6pm - 12am - 25% Bar.' // Sunday
-            ], 'assets/Cliff.png')
+            ], 'assets/Cliff.png'),
             new Person(8, 'Kai', [
                 '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am. Bar, 50%', // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
                 '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am.', // Sunday
