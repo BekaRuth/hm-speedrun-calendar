@@ -145,7 +145,7 @@ export class AppComponent {
         else if ([this.dayOfWeek === 'Sunday']) {
             this.npcInfo[2].today = this.npcInfo[2].schedule[1];
         }
-        if (['Friday', 'Saturday'].includes(this.dayOfWeek)) {
+        else if (['Friday', 'Saturday'].includes(this.dayOfWeek)) {
             this.npcInfo[2].today = this.npcInfo[2].schedule[2];
         }
         else {
@@ -175,7 +175,7 @@ export class AppComponent {
         else if (this.dayOfWeek === 'Saturday') {
             this.npcInfo[4].today = this.npcInfo[4].schedule[2];
         }
-        if (this.dayOfWeek === 'Sunday') {
+        else if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[4].today = this.npcInfo[4].schedule[3];
         }
         else {
@@ -190,7 +190,7 @@ export class AppComponent {
         else if (this.dayOfWeek === 'Saturday') {
             this.npcInfo[5].today = this.npcInfo[5].schedule[1];
         }
-        if (this.dayOfWeek === 'Sunday') {
+        else if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[5].today = this.npcInfo[5].schedule[2];
         }
         else {
