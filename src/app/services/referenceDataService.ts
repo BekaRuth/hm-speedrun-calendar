@@ -42,7 +42,7 @@ export class ReferenceDataService {
                 '10am - 6pm 50% Town Square Fountain. Rain Unavailable', // Sunday
                 'Unavailable' // Wednesday
             ], 'assets/Rick.png'),
-            new Person(7, 'Cliff' [
+            new Person(7, 'Cliff', [
                 '9am - 5pm. 100% Hot Springs. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Monday
                 '9am - 5pm. 100% Beach. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar' // Tuesday
                 '9am - 5pm. 100% Green Ranch. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar' // Wednesday
