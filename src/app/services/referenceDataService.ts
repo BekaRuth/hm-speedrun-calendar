@@ -51,7 +51,10 @@ export class ReferenceDataService {
                 '9am - 5pm. 50% Carpenter, 50% Unavailable. Rain: 50% Inside Carpenter House 6pm - 12am - 25% Bar.' // Sunday
             ], 'assets/Cliff.png')
             new Person(8, 'Kai', [
-                'Spring - Fall, 9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am. Bar, 50%' // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am. Bar, 50%', // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am.', // Sunday
+                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Snow: Vineyard Cellar. 6pm - 12am. Bar, 50%' // Winter Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Snow: Vineyard Cellar.' // Winter Sunday
             ], 'assets/Kai.png')
         ];
     }
