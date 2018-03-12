@@ -6,7 +6,7 @@ export class ReferenceDataService {
     
     getNPCS() {
         return [
-            new Person(1, 'AnnTest', [
+            new Person(1, 'Ann', [
                 '8am - 5pm 50% Goddess Pond, 50% Green Ranch. Rain: Green Ranch Barn near back', // Sunday
                 '8am - 5pm Green Ranch / work. Rain: 8am-5pm Green Ranch Barn', // Monday, Tuesday, Wednesday, Friday, Saturday
                 '9am - 5pm 25% Fisherman Tent, 25% Carpenter House, 25% Vineyard, 25% 10am-5pm Tool Shop. Rain: Unavailable', // Thursday
