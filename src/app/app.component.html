@@ -5,11 +5,14 @@
   </div>
 </nav>
 
-<div *ngFor="let npc of selectedNPCs">
+<div *ngFor="let npc of selectedNPCs; let i = index">
   <mat-card>
     <mat-card-header>
-      <img mat-card-avatar [src]="npc.image" />
-      <mat-card-title>{{npc.today}}</mat-card-title>
+        <img mat-card-avatar [src]="npc.image" />
+        <mat-card-title>{{npc.today}}</mat-card-title>
+      <div class="remove-btn">
+        <button mat-icon-button color="warn" (click)="removeNPC(i)"> - </button>
+      </div>
     </mat-card-header>
   </mat-card>
 </div>
