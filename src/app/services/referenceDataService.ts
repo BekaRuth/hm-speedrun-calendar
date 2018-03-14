@@ -43,18 +43,33 @@ export class ReferenceDataService {
                 'Unavailable' // Wednesday
             ], 'assets/Rick.png'),
             new Person(7, 'Cliff', [
-                '9am - 5pm. 100% Hot Springs. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Monday
-                '9am - 5pm. 100% Beach. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Tuesday
-                '9am - 5pm. 100% Green Ranch. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Wednesday
-                '9am - 5pm. 100% Carpenter House. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', // Thursday
-                '9am - 5pm. 50% Fisherman, 50% Unavailable. Rain: 50% Inside Carpenter House. 6pm - 12am - 25% Bar', //Friday, Saturday
-                '9am - 5pm. 50% Carpenter, 50% Unavailable. Rain: 50% Inside Carpenter House 6pm - 12am - 25% Bar.' // Sunday
+                '9am - 5pm. Hot Springs. Rain: 50% Inside Carpenter House. 6pm - 12am. 25% Bar', // Monday
+                '9am - 5pm. Beach. Rain: 50% Inside Carpenter House. 6pm - 12am. 25% Bar', // Tuesday
+                '9am - 5pm. Green Ranch. Rain: 50% Inside Carpenter House. 6pm - 12am. 25% Bar', // Wednesday
+                '9am - 5pm. Carpenter House. Rain: 50% Inside Carpenter House. 6pm - 12am. 25% Bar', // Thursday
+                '9am - 5pm. 50% Fisherman, 50% Unavailable. Rain: 50% Inside Carpenter House. 6pm - 12am. 25% Bar', // Friday, Saturday
+                '9am - 5pm. 50% Carpenter, 50% Unavailable. Rain: 50% Inside Carpenter House 6pm - 12am' // Sunday
             ], 'assets/Cliff.png'),
-            new Person(8, 'Kai', [
-                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am. 50% Bar', // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Rain/Snow: Vineyard Cellar. 6pm - 12am.', // Sunday
-                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Snow: Vineyard Cellar. 6pm - 12am. 50% Bar', // Winter Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-                '9am - 5pm. Vineyard, just outside the house. Winter, Vineyard Cellar Basement. Snow: Vineyard Cellar.' // Winter Sunday
+			new Person(8, 'Gray', [
+				'8am - 12pm. Inside Barn. 12pm - 6pm. Green Ranch. Rain: Inside Barn. 6pm - 12am. 50% Bar', //Monday, Tuesday, Wednesday, Friday, Saturday
+				'8am - 12pm. Inside Barn. 12pm - 6pm. Green Ranch. Rain: Inside Barn', // Sunday
+				'8am - 1pm. Carpenter House. Rain: Unavailable. 6pm - 12am. 50% Bar' // Thursday
+			], 'assets/Gray.png'),
+			new Person(9, 'Harris', [
+				'9am - 12pm. 50% Outside Church, 50% Outside Midwife House. 12pm - 6pm. 50% Fisherman Tent, 25% Crossroads, 25% Green Ranch. 6pm - 12am. 50% Bar', // Monday, Tuesday, Wednesday, Thursday
+				'12pm - 5pm. Library', // Sunday
+				'Unavailable' // Sunday Summer 1-10 or Winter 1-10
+			], 'assets/Harris.png'),
+			new Person(10, 'Jeff', [
+				'8am - 5pm. 50% Fisherman Tent, fishing in river. 50% Unavailable. Rain: Unavailable. 6pm - 12am. 50% Bar', // Monday
+				'9am - 5pm. Bakery. 6pm - 12am. 50% Bar', // Tuesday, Wednesday, Thursday, Friday, Saturday
+				'9am - 5pm. Bakery' // Sunday
+			], 'assets/Jeff.png'),
+			new Person(11, 'Kai', [
+                '9am - 5pm. Vineyard, just outside the house. Rain: Vineyard Cellar. 6pm - 12am. 50% Bar', // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                '9am - 5pm. Vineyard, just outside the house. Rain: Vineyard Cellar', // Sunday
+                '9am - 5pm. Vineyard Cellar Basement. Snow: Vineyard Cellar. 6pm - 12am. 50% Bar', // Winter Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                '9am - 5pm. Vineyard Cellar Basement. Snow: Vineyard Cellar' // Winter Sunday
             ], 'assets/Kai.png')
         ];
     }

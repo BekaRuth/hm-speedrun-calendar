@@ -83,9 +83,10 @@ export class AppComponent {
     public addNPC(id: number) {
         for (let i = 0; i < this.npcInfo.length; i++) {
             if (this.npcInfo[i].id === id) {
-                this.selectedNPCs.push(this.npcInfo[i]);
+                this.selectedNPCs.push(this.npcInfo[i])
             }
         }
+		this.getSchedules();
     }
 
     // Called when minus button is clicked. Removes the NPC from the list
@@ -94,6 +95,7 @@ export class AppComponent {
     }
 
     // If the NPC is selected, get their schedule
+    // Start of NPC Schedule Functions
     public getSchedules() {
         if (this.selectedNPCs.some(e => e.id === 1)) {
             this.getAnnSchedule();
@@ -117,6 +119,15 @@ export class AppComponent {
             this.getCliffSchedule();
         }
         if (this.selectedNPCs.some(e => e.id === 8)) {
+            this.getGraySchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 9)) {
+            this.getHarrisSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 10)) {
+            this.getJeffSchedule();
+        }
+        if (this.selectedNPCs.some(e => e.id === 11)) {
             this.getKaiSchedule();
         }
     }
@@ -214,7 +225,7 @@ export class AppComponent {
             this.npcInfo[5].today = this.npcInfo[5].schedule[0];
         }
     }
-  
+
     public getCliffSchedule() {
         if (this.dayOfWeek === 'Monday') {
             this.npcInfo[6].today = this.npcInfo[6].schedule[0];
@@ -235,19 +246,55 @@ export class AppComponent {
             this.npcInfo[6].today = this.npcInfo[6].schedule[5];
         }
     }
-  
-    public getKaiSchedule() {
+
+    public getGraySchedule() {
         if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[7].today = this.npcInfo[7].schedule[1];
         }
-        else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+        else if (this.dayOfWeek === 'Thursday') {
+            this.npcInfo[7].today = this.npcInfo[7].schedule[2];
+        }
+        else if (['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
             this.npcInfo[7].today = this.npcInfo[7].schedule[0];
         }
-        else if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[3];
+    }
+
+    public getHarrisSchedule() {
+        if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[8].today = this.npcInfo[8].schedule[2];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[8].today = this.npcInfo[8].schedule[1];
+        }
+        else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+            this.npcInfo[8].today = this.npcInfo[8].schedule[0];
+        }
+    }
+
+    public getJeffSchedule() {
+        if (this.dayOfWeek === 'Monday') {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[0];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[2];
+        }
+        else {
+            this.npcInfo[9].today = this.npcInfo[9].schedule[1];
+        }
+    }
+
+    public getKaiSchedule() {
+        if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[3];
         }
         else if (this.currentSeason === 'Winter' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
-            this.npcInfo[7].today = this.npcInfo[7].schedule[2];
+            this.npcInfo[10].today = this.npcInfo[10].schedule[2];
+        }
+        else if (this.dayOfWeek === 'Sunday') {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[1];
+        }
+        else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
+            this.npcInfo[10].today = this.npcInfo[10].schedule[0];
         }
     }
     // End of NPC Schedule Functions
