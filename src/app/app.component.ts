@@ -130,6 +130,36 @@ export class AppComponent {
         if (this.selectedNPCs.some(e => e.id === 11)) {
             this.getKaiSchedule();
         }
+		if (this.selectedNPCs.some(e => e.id === 12)) {
+			this.getKentSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 13)) {
+			this.getStuSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 14)) {
+			this.getPastorSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 15)) {
+			this.getBasilSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 16)) {
+			this.getLilliaSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 17)) {
+			this.getDougSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 18)) {
+			this.getMayorSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 19)) {
+			this.getMayorsWifeSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 20)) {
+			this.getPotionShopOwnerSchedule();
+		}
+		if (this.selectedNPCs.some(e => e.id === 21)) {
+			this.getMaySchedule();
+		}
     }
 
     public getAnnSchedule() {
@@ -294,6 +324,156 @@ export class AppComponent {
         else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(this.dayOfWeek)) {
             this.npcInfo[10].today = this.npcInfo[10].schedule[0];
         }
-    }
-    // End of NPC Schedule Functions
+	}
+		
+	public getKentSchedule() {
+		if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[11].today = this.npcInfo[11].schedule[3];
+        }
+		else if (this.currentSeason === 'Summer' && this.dayOfWeek === 'Sunday') {
+			this.npcInfo[11].today = this.npcInfo[11].schedule[4];
+		}
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[11].today = this.npcInfo[11].schedule[2];
+		}	
+		else if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[11].today = this.npcInfo[11].schedule[1];
+		}
+		else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(this.dayOfWeek)) {
+			this.npcInfo[11].today = this.npcInfo[11].schedule[0];
+		}
+	}
+	
+	public getStuSchedule() {
+		if (this.currentSeason === 'Winter' && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[12].today = this.npcInfo[12].schedule[3];
+        }
+		else if (this.currentSeason === 'Summer' && this.dayOfWeek === 'Sunday') {
+			this.npcInfo[12].today = this.npcInfo[12].schedule[4];
+		}
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[12].today = this.npcInfo[12].schedule[2];
+		}	
+		else if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[12].today = this.npcInfo[12].schedule[1];
+		}
+		else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(this.dayOfWeek)) {
+			this.npcInfo[12].today = this.npcInfo[12].schedule[0];
+		}
+	}
+	
+	public getPastorSchedule() {
+		if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[13].today = this.npcInfo[13].schedule[1];
+		}
+		else {
+			this.npcInfo[13].today = this.npcInfo[13].schedule[0];
+		}
+	}
+	
+	public getBasilSchedule() {
+		if (this.currentSeason === 'Winter') {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[0];
+		}
+		else if (this.currentSeason === 'Spring' && this.currentDay < 15) {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[0];
+		}	
+		else if (this.currentSeason === 'Fall' && this.currentDay > 3) {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[0];
+		}
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[4];
+		}
+		else if (this.dayOfWeek === 'Thursday') {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[2];
+		}
+		else {
+			this.npcInfo[14].today = this.npcInfo[14].schedule[1];
+		}	
+	}
+	
+	public getLilliaSchedule() {
+		if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[15].today = this.npcInfo[15].schedule[1];
+		}
+		else {
+			this.npcInfo[15].today = this.npcInfo[15].schedule[0];
+		}
+	}
+    
+	public getDougSchedule() {
+		if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[16].today = this.npcInfo[16].schedule[2]
+		}
+		else if (this.dayOfWeek === 'Thursday') {
+			this.npcInfo[16].today = this.npcInfo[16].schedule[1]
+		}
+		else {
+			this.npcInfo[16].today = this.npcInfo[16].schedule[0]
+		}
+	}
+	
+	public getMayorSchedule() {
+		if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Saturday') {
+            this.npcInfo[17].today = this.npcInfo[17].schedule[3];
+        }
+		else if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[17].today = this.npcInfo[17].schedule[2];
+		}
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[17].today = this.npcInfo[17].schedule[4];
+		}
+		else if (this.dayOfWeek === 'Friday') {
+			this.npcInfo[17].today = this.npcInfo[17].schedule[1];
+		}
+		else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday'].includes(this.dayOfWeek)) {
+			this.npcInfo[17].today = this.npcInfo[17].schedule[0];
+		}
+	}
+	
+	public getMayorsWifeSchedule() {
+		if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[18].today = this.npcInfo[18].schedule[2];
+		}
+		else if (this.dayOfWeek === 'Friday') {
+			this.npcInfo[18].today = this.npcInfo[18].schedule[1];
+		}
+		else {
+			this.npcInfo[18].today = this.npcInfo[18].schedule[0];
+		}
+	}
+	
+	public getPotionShopOwnerSchedule() {
+		if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[19].today = this.npcInfo[19].schedule[2];
+		}
+		else if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[19].today = this.npcInfo[19].schedule[1];
+		}
+		else {
+			this.npcInfo[19].today = this.npcInfo[19].schedule[0];
+		}
+	}
+	
+	public getMaySchedule() {
+		if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Sunday') {
+            this.npcInfo[20].today = this.npcInfo[20].schedule[5];
+        }
+		else if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && this.dayOfWeek === 'Saturday') {
+            this.npcInfo[20].today = this.npcInfo[20].schedule[3];
+        }
+		else if (['Summer', 'Winter'].includes(this.currentSeason) && this.currentDay < 11 && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(this.dayOfWeek)) {
+            this.npcInfo[20].today = this.npcInfo[20].schedule[1];
+        }
+		else if (this.dayOfWeek === 'Sunday') {
+			this.npcInfo[20].today = this.npcInfo[20].schedule[4];
+		}
+		else if (this.dayOfWeek === 'Saturday') {
+			this.npcInfo[20].today = this.npcInfo[20].schedule[2];
+		}
+		else if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(this.dayOfWeek)) {
+			this.npcInfo[20].today = this.npcInfo[20].schedule[0];
+		}
+	}
+	// End of NPC Schedule Functions
 }
