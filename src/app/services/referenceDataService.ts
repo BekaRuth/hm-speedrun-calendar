@@ -92,7 +92,7 @@ export class ReferenceDataService {
             new Person(15, 'Basil', [
                 'Out of Town', // Fall 4 - Spring 15
                 '9am - 5pm. Flower Shop. 6pm - 12am. 50% Bar', // Monday, Tuesday, Wednesday
-                'Unavailable. Rain: Flower Shop. 6pm - 12am. 50% Bar', // Thursday
+                '9am - 5pm. Behind Flower Shop. Rain: Flower Shop. 6pm - 12am. 50% Bar', // Thursday
                 '8am - 6pm. Fisherman Tent. Rain: Flower Shop. 6pm - 12am. 50% Bar', // Friday, Saturday
                 '9am - 5pm. Town Square' //Sunday
             ], 'assets/Basil.png'),
