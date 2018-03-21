@@ -198,7 +198,7 @@ export class AppComponent {
         if (['Monday', 'Thursday'].includes(this.dayOfWeek)) {
             this.npcInfo[2].today = this.npcInfo[2].schedule[0];
         }
-        else if ([this.dayOfWeek === 'Sunday']) {
+        else if (this.dayOfWeek === 'Sunday') {
             this.npcInfo[2].today = this.npcInfo[2].schedule[1];
         }
         else if (['Friday', 'Saturday'].includes(this.dayOfWeek)) {
