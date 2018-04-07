@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReferenceDataService } from './services/referenceDataService';
 import { Person } from './models/person';
+import { Festival } from './models/festival';
 
 @Component({
     selector: 'app-root',
@@ -8,15 +9,19 @@ import { Person } from './models/person';
 })
 export class AppComponent {
     public npcInfo; // This will store all of the NPC info from the ReferenceDataService
+    public festivalInfo; // This will store all of the Festival info from the ReferenceDataService
     public currentDay = 3; // This will range from 1-30. Starts on 3 because the game starts on Spring 3rd
     public totalDays = 0; // This will track total number of days played. Will be used to track what day of the week it is
     public currentSeason = 'Spring'; // Will be 'Spring', 'Summer', 'Fall', or 'Winter'. Game starts on 'Spring'
     public dayOfWeek = 'Wednesday'; // Used to track the day of the week. Game starts on 'Wednesday'
     public currentYear = 1; // Tracks what year the player is on
     public selectedNPCs = new Array<Person>(); // An array of the NPCs which have been selected
+    public todayFestival: Festival;
+    public trackFestivals: boolean = true;
 
     constructor(private referenceDataService: ReferenceDataService) {
         this.npcInfo = this.referenceDataService.getNPCS();
+        this.festivalInfo = this.referenceDataService.getFestivals();
         this.getSchedules();
     }
 
@@ -30,6 +35,7 @@ export class AppComponent {
         }
         this.setDayOfWeek();
         this.getSchedules();
+        this.checkFestival();
     }
 
     // Changes the current season to the next season
@@ -92,6 +98,88 @@ export class AppComponent {
     // Called when minus button is clicked. Removes the NPC from the list
     public removeNPC(index: number) {
         this.selectedNPCs.splice(index, 1);
+    }
+
+    // Checks if the day is a festival
+    public checkFestival() {
+        this.todayFestival = null;
+        if (this.currentSeason === 'Spring') {
+            if (this.currentDay === 1) {
+                this.todayFestival = this.festivalInfo[0];
+            }
+            if (this.currentDay === 8) {
+                this.todayFestival = this.festivalInfo[1];
+            }
+            if (this.currentDay === 17) {
+                this.todayFestival = this.festivalInfo[2];
+            }
+            if (this.currentDay === 18 && this.currentYear === 1) {
+                this.todayFestival = this.festivalInfo[3];
+            }
+            if ([19, 20, 21, 22].includes(this.currentDay)) {
+                this.todayFestival = this.festivalInfo[4];
+            }
+            if (this.currentDay === 23) {
+                this.todayFestival = this.festivalInfo[5];
+            }
+        }
+        if (this.currentSeason === 'Summer') {
+            if (this.currentDay === 1 && this.currentYear === 3) {
+                this.todayFestival = this.festivalInfo[6];
+            }
+            if (this.currentDay === 1) {
+                this.todayFestival = this.festivalInfo[7];
+            }
+            if (this.currentDay === 9) {
+                this.todayFestival = this.festivalInfo[8];
+            }
+            if (this.currentDay === 17) {
+                this.todayFestival = this.festivalInfo[9];
+            }
+            if (this.currentDay === 24) {
+                this.todayFestival = this.festivalInfo[10];
+            }
+        }
+        if (this.currentSeason === 'Fall') {
+            if (this.currentDay === 4) {
+                this.todayFestival = this.festivalInfo[11];
+            }
+            if (this.currentDay === 12) {
+                this.todayFestival = this.festivalInfo[12];
+            }
+            if (this.currentDay === 20) {
+                this.todayFestival = this.festivalInfo[13];
+            }
+            if ([23, 24, 25, 26, 27].includes(this.currentDay) && this.currentYear === 1) {
+                this.todayFestival = this.festivalInfo[14];
+            }
+            if (this.currentDay === 28) {
+                this.todayFestival = this.festivalInfo[15];
+            }
+            if (this.currentDay === 30 && this.currentYear === 1) {
+                this.todayFestival = this.festivalInfo[16];
+            }
+        }
+        if (this.currentSeason === 'Winter') {
+            if (this.currentDay === 10) {
+                this.todayFestival = this.festivalInfo[17];
+            }
+            if ([12 ,13 ,14 ,15 ,16].includes(this.currentDay) && this.currentYear === 1) {
+                this.todayFestival = this.festivalInfo[18];
+            }
+            if (this.currentDay === 19) {
+                this.todayFestival = this.festivalInfo[19];
+            }
+            if (this.currentDay === 24) {
+                this.todayFestival = this.festivalInfo[20];
+            }
+            if (this.currentDay === 27) {
+                this.todayFestival = this.festivalInfo[21];
+            }
+            if (this.currentDay === 30) {
+                this.todayFestival = this.festivalInfo[22];
+            }
+        }
     }
 
     // If the NPC is selected, get their schedule

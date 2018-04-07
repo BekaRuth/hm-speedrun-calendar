@@ -1,5 +1,6 @@
 import { Injectable, Inject } from "@angular/core";
 import { Person } from "../models/person";
+import { Festival } from "../models/festival";
 
 @Injectable()
 export class ReferenceDataService {
@@ -130,6 +131,34 @@ export class ReferenceDataService {
                 '9am - 3pm. 50% Town Square, 50% Carpenter House. Rain: Inside Library', // Sunday when Library is open
                 '9am - 3pm. 50% Town Square, 50% Carpenter House. Rain: Unavailable' // Sunday when Library is closed
             ], 'assets/May.png', )
+        ];
+    }
+
+    getFestivals() {
+        return [
+            new Festival(0, 'New Year\'s Festival', '10am Town Square'),
+            new Festival(1, 'Sowing Festival', '10am Town Square'),
+            new Festival(2, 'Horse Race', '9am Town Square'),
+            new Festival(3, 'Cliff Hunger Event',''),
+            new Festival(4, 'Voting Booth Open', 'Town Square'),
+            new Festival(5, 'Flower Festival', '10am Town Square'),
+            new Festival(6, 'Evaluation', ''),
+            new Festival(7, 'Fireworks Festival', '7pm Beach, Green Ranch, Mountain, Bakery, Town Square'),
+            new Festival(8, 'Vegetable Festival', 'Town Square 10am'),
+            new Festival(9, 'Firefly Festival', '7pm Beach'),
+            new Festival(10, 'Swimming Festival', '10am Beach'),
+            new Festival(11, 'Cow Festival', '10am Green Ranch'),
+            new Festival(12, 'Harvest Festival', '10am Town Square'),
+            new Festival(13, 'Egg Festival', '10am Town Area'),
+            new Festival(14, 'Bridge Work', 'Fisherman Tent Area'),
+            new Festival(15, 'Horse Race', '9am Town Square'),
+            new Festival(16, 'Mana Cow Event', 'Doug asks to take care of cows'),
+            new Festival(17, 'Thanksgiving', 'Farm. Girls will stop by throughout the day'),
+            new Festival(18, 'Hot Springs Work', 'Fisherman Tent Area'),
+            new Festival(19, 'Dog Race', '9am Town Square'),
+            new Festival(20, 'Starry Night Festival', '7pm Beach, Green Ranch, Mountain, Bakery, Town Square'),
+            new Festival(21, 'Spirit Festival', '7pm Town Square'),
+            new Festival(22, 'New Year\'s Eve Festival', '6pm Bar or Church')
         ];
     }
 }
