@@ -5,6 +5,12 @@
   </div>
 </nav>
 
+  <mat-card *ngIf="trackFestivals && todayFestival" class="festival-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>error</mat-icon><strong>{{todayFestival.name}}, {{todayFestival.description}} </strong>
+    </mat-card-header>
+  </mat-card>
+
 <div *ngFor="let npc of selectedNPCs; let i = index">
   <mat-card>
     <mat-card-header>
@@ -18,10 +24,14 @@
 </div>
 
 <hr />
-<mat-form-field class="full-width">
-  <mat-select placeholder="Add NPC">
-    <mat-option *ngFor="let npc of npcInfo" [value]="npc.id" (click)="addNPC(npc.id)">
-      {{npc.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="container-fluid">
+  <mat-form-field class="full-width">
+    <mat-select placeholder="Add NPC">
+      <mat-option *ngFor="let npc of npcInfo" [value]="npc.id" (click)="addNPC(npc.id)">
+        {{npc.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle [(ngModel)]="trackFestivals">Display Festivals / Events</mat-slide-toggle>
+</div>

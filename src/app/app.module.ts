@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,6 +29,7 @@ import { AppComponent } from './app.component';
         MatIconModule,
         MatInputModule,
         MatSelectModule,
+        MatSlideToggleModule,
         MatButtonModule,
         BrowserAnimationsModule,
         MatFormFieldModule,
