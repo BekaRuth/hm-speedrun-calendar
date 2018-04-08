@@ -37,3 +37,20 @@
     right: 0px;
   }
 }
+
+.festival-card {
+  background-color: #E8638F;
+  color:white;
+}
+
+@media (max-width: 500px) {
+  .date-display {
+    height: 70px;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+}
